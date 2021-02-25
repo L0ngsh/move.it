@@ -35,4 +35,8 @@
         
         margin-top: 3rem;
     }
+
+    .container section > div {
+        width: 100%;
+    }
 }
