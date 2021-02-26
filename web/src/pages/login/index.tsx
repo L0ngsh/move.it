@@ -1,4 +1,6 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import Head from 'next/head';
+import { FormEvent, useEffect, useState } from 'react';
+
 import styles from '../../styles/pages/Login.module.css';
 
 export default function Login(){
@@ -27,6 +29,11 @@ export default function Login(){
 
     return(
         <div className={styles.container}>
+            <Head>
+                <title>Login | move.it</title>
+            </Head>
+
+
             <section>
                 <div className={styles.login}>
                     <div className={styles.logo}>
