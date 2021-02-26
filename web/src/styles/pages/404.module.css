@@ -1,0 +1,53 @@
+.container {
+    height: 100vh;
+    background: var(--blue);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container section {
+    background: url('/logo.svg') no-repeat;
+    background-size: contain;
+    background-position-x: left;
+    background-position-y: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+    color: var(--white);
+    text-align: center;
+}
+
+.container section strong {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.container section strong span {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.container section p {
+    font-size: 1.5rem;
+}
+
+.container section p a {
+    font-size: 1.5rem;
+    color: var(--text-highlight);
+
+    transition: color 0.2s, font-size 0.2s;
+}
+
+.container section p a:hover {
+    color: var(--green);
+    font-size: 1.6rem;
+}
