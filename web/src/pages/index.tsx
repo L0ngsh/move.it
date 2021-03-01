@@ -6,6 +6,7 @@ import { Countdown } from "../components/Countdow";
 import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
 import { ChallengeBox } from "../components/ChallengeBox";
+import { SideBar } from '../components/Sidebar';
 import { ChallengesProvider } from '../contexts/ChallengesContexts';
 import { CoutndownProvider } from '../contexts/CountdownContexts';
 
@@ -23,7 +24,9 @@ export default function Home(props: HomeProps) {
       <Head>
         <title>Inicio | move.it</title>
       </Head>
-    
+      
+      <SideBar {...{active: 'home'}} />
+
       <div className={styles.container}>
         <ExperienceBar />
         
