@@ -1,0 +1,120 @@
+.container {
+    background: linear-gradient(var(--white), var(--background));
+
+    position: fixed;
+    top: 0;
+
+    height: 100vh;
+
+    display: flex;;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+
+    transition: left 0.5s;
+}
+
+.logo {
+    padding: 1rem;
+
+    cursor: pointer;
+}
+
+.logo img {
+    width: 3rem;
+}
+
+.links {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 0.5rem 0;
+}
+
+.links a .hover {
+    display: none;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--blue);
+
+    border-radius: 1.5px;
+
+    transition: display 0.2s;
+}
+
+.links a svg {
+    flex: 1;
+}
+
+.links a svg path {
+    stroke: var(--text);
+    stroke-width: 2;
+
+    transition: stroke 0.2s;
+}
+
+.links a[data-active="true"] svg path {
+    stroke: var(--blue)
+}
+
+.links a:hover .hover {
+    display: block;
+}
+
+.menuIcon {
+    position: fixed;
+    right: 0;
+
+    background: var(--white);
+
+    padding: 1rem;
+
+    border-radius: 50%;
+
+    max-width: 4rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 1rem 1rem 0;
+
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);;
+
+    cursor: pointer;
+
+    transition: bottom 0.5s;
+}
+
+.menuIcon .iconbar {
+    height: 0.3rem;
+    width: 100%;
+
+    background: var(--blue);
+
+    border-radius: 0.5px;
+}
+
+.menuIcon .iconbar + .iconbar {
+    margin-top: 0.5rem;
+}
