@@ -14,7 +14,7 @@ export function RankWidget(userProps: RankProps) {
             <div className={styles.position}>
                 {userProps.rank}
             </div>
-        
+
             <div className={styles.userProps}>
                 <div className={styles.profileData}>
                     <img src={`https://github.com/${userProps.username}.png`} alt={`${userProps.username}.png`}/>
@@ -36,7 +36,7 @@ export function RankWidget(userProps: RankProps) {
 
                 <div>
                     <p>
-                        <span>{userProps.totalXp}</span> Desafios
+                        <span>{userProps.totalXp}</span> xp
                     </p>
                 </div>
 
