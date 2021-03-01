@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from '../styles/components/SideBar.module.css';
 
 interface SideBArProps {
-    active: 'home' | 'leaderborad';
+    active: 'home' | 'rank';
 }
 
 export function SideBar({ active }: SideBArProps) {
@@ -33,8 +33,8 @@ export function SideBar({ active }: SideBArProps) {
                         </a>
                     </Link>
 
-                    <Link href="/leaderboard">
-                        <a data-active={(active === 'leaderborad') ? 'true':'false'}>
+                    <Link href="/rank">
+                        <a data-active={(active === 'rank') ? 'true':'false'}>
                             <div className={styles.hover} />
 
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
