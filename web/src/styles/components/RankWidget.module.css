@@ -24,6 +24,10 @@
     font-size: 1.5rem;
 
     border-right: 2px solid var(--background);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .userProps {
@@ -41,6 +45,10 @@
 
 .userProps > div p span {
     color: var(--blue);
+}
+
+.userProps > div p {
+    font-size: 1.2rem;
 }
 
 .profileData {
@@ -75,4 +83,60 @@
 
 .profileData > div div img {
     margin-right: 0.5rem;
+}
+
+@media(max-width: 760px) {
+    .container {
+        flex-direction: column-reverse
+    }
+    
+    .position, .userProps {
+        border: 0;
+    }
+
+    .position {
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .container > div:first-child {
+        border-radius: 0;
+        
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    .container > div:last-child {
+        border-radius: 0;
+        
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .userProps {
+        display: flex;
+        flex-direction: column;
+
+        padding: 1rem;
+    
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .profileData {
+        padding-bottom: 1rem;
+
+        border-bottom: 1px solid var(--gray-line);
+    
+        flex-direction: column;
+    }
+
+    .profileData > img {
+        width: 128px;
+    
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    .userProps > div + div {
+        margin-top: 1rem;
+    }
 }
