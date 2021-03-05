@@ -43,6 +43,14 @@ export function SideBar({ active }: SideBArProps) {
                             </svg>
                         </a>
                     </Link>
+                
+                    <Link href="/logout">
+                        <a data-active={(active === 'rank') ? 'true':'false'}>
+                            <div className={styles.hover} />
+
+                            <p>Sair</p>
+                        </a>
+                    </Link>
                 </div>
             </div>
             
