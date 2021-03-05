@@ -1,9 +1,10 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
 
 import { LevelUpModal } from '../components/LevelUpModal';
 
+import { api } from '../api';
 import challenges from '../../challenges.json';
+import { formatWithValidation } from 'next/dist/next-server/lib/utils';
 
 interface Challenge {
     type: 'body' | 'eye';
@@ -17,6 +18,7 @@ interface ChallengesConxtsData {
     challengesCompleted: number
     activeChallenge: Challenge;
     xpToNextLevel: number;
+    name: String;
     levelUp: () => void;
     startNewChallenge: () => void;
     resetChallenge: () => void;
@@ -26,32 +28,42 @@ interface ChallengesConxtsData {
 
 interface ChallengesProviderProp {
     children: ReactNode;
-    level: number;
-    currentXp: number;
-    challengesCompleted: number;
+    level: Number;
+    currentXp: Number;
+    challengesCompleted: Number;
+    totalXp: Number;
+    id: Number;
+    name: String;
 }
 
 export const ChallengesContext = createContext({} as ChallengesConxtsData);
 
 export function ChallengesProvider({ children, ...rest } : ChallengesProviderProp) {
-    const [ level, setLevel ] = useState(rest.level ?? 1);
-    const [ currentXp, setCurrentXp ] = useState(rest.currentXp ?? 0);
-    const [ challengesCompleted, setChallengesCompleted ] = useState(rest.challengesCompleted ?? 0);
+    const [ level, setLevel ] = useState(Number(rest.level));
+    const [ currentXp, setCurrentXp ] = useState(Number(rest.currentXp));
+    const [ totalXp, setTotalXp ] = useState(Number(rest.totalXp));
+    const [ challengesCompleted, setChallengesCompleted ] = useState(Number(rest.challengesCompleted));
     const [ isLevelUpModalOpen, setisLevelUpModalOpen ] = useState(false);
+    
+    const name = rest.name;
 
     const [activeChallenge, setActiveChallenge] = useState(null);
 
     const xpToNextLevel = Math.pow((level + 1) * 4, 2);
 
     useEffect(() => {
-        Notification.requestPermission();
-    }, []);
+        const updateUser = async () => {
+            await api.post('updateuser', {
+                level,
+                currentXp,
+                totalXp,
+                challengesCompleted,
+                id: rest.id
+            });
+        }
 
-    useEffect(() => {
-        Cookies.set('level', String(level));
-        Cookies.set('currentXp', String(currentXp));
-        Cookies.set('challengesCompleted', String(challengesCompleted));
-    }, [level, currentXp, challengesCompleted]);
+        updateUser();
+    }, [level, currentXp, totalXp, challengesCompleted])
 
     function levelUp() {
         setLevel(level + 1);
@@ -97,6 +109,7 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
             levelUp();
         }
 
+        setTotalXp(totalXp + amount);
         setCurrentXp(finalExperience);
         setActiveChallenge(null);
         setChallengesCompleted(challengesCompleted + 1);
@@ -115,6 +128,7 @@ export function ChallengesProvider({ children, ...rest } : ChallengesProviderPro
                 xpToNextLevel,
                 completeChallenge,
                 closeLevelUpModal,
+                name,
             }}
         >
             {children}

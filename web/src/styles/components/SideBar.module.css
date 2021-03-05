@@ -64,6 +64,14 @@
     flex: 1;
 }
 
+.links a p {
+    flex: 1;
+    height: 32px;
+    text-align: center;
+
+    font-size: 1.1rem;
+}
+
 .links a svg path {
     stroke: var(--text);
     stroke-width: 2;
