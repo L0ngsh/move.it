@@ -139,9 +139,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     
     const { id } = loginResponse.data;
     
-    console.log(`token: ${token}`);
-    console.log(`id: ${id}`);
-
     props.id = id;
     props.token = token;
 
