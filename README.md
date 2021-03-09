@@ -54,4 +54,13 @@ module.exports = {
 }
 ```
 ## Get GitHub OAuth creds
+![1](https://user-images.githubusercontent.com/53846456/110531157-fe80d480-80f9-11eb-89b3-b6ee70f9e951.png)
+
+![2](https://user-images.githubusercontent.com/53846456/110531276-22441a80-80fa-11eb-9c61-82ed71134826.png)
+
+![3](https://user-images.githubusercontent.com/53846456/110531389-40aa1600-80fa-11eb-9ed9-32524cc29a51.png)
+
+![4](https://user-images.githubusercontent.com/53846456/110531551-75b66880-80fa-11eb-9663-4b2e7e4147ac.png)
+
+![5](https://user-images.githubusercontent.com/53846456/110531577-7ea73a00-80fa-11eb-823c-2059b8935c78.png)
 
